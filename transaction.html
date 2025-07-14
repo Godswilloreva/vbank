@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transaction History - Vercell Bank</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #60a5fa;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .year-section {
+      margin-bottom: 40px;
+    }
+
+    .month-title {
+      font-size: 1.2rem;
+      color: #facc15;
+      margin: 10px 0;
+    }
+
+    .transaction-list {
+      background-color: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .transaction-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #334155;
+    }
+
+    .transaction-item:last-child {
+      border-bottom: none;
+    }
+
+    .credit {
+      color: #4ade80;
+    }
+
+    .debit {
+      color: #f87171;
+    }
+
+    .statement-form {
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+
+    .statement-form h2 {
+      color: #3b82f6;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background-color: #1f2937;
+      color: #f1f5f9;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 14px 20px;
+      width: 100%;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+      display: block;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Transaction History</h1>
+
+    <!-- YEARLY TRANSACTIONS -->
+    <div class="year-section">
+      <h2>2025</h2>
+
+      <div class="month-title">July</div>
+      <div class="transaction-list">
+        <div class="transaction-item">
+          <span>Transfer from Oil Rig Monthly Wages LTD</span>
+          <span class="credit">+ $160,000</span>
+        </div>
+        <div class="transaction-item">
+          <span>Amazon Purchase</span>
+          <span class="debit">- $500</span>
+        </div>
+        <div class="transaction-item">
+          <span>Bitcoin Outgoing</span>
+          <span class="debit">- $20,000</span>
+        </div>
+        <div class="transaction-item">
+          <span>ATM Withdrawal</span>
+          <span class="debit">- $10,000</span>
+        </div>
+        <div class="transaction-item">
+          <span>Card Payment – Netflix</span>
+          <span class="debit">- $12.99</span>
+        </div>
+        <div class="transaction-item">
+          <span>Transfer from Jane</span>
+          <span class="credit">+ $60,000</span>
+        </div>
+       <!-- Year 2024 -->
+<div class="year-section">
+  <h2>2024</h2>
+
+  <div class="month-title">December</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Transfer from EuroStock Brokers LTD</span>
+      <span class="credit">+ $85,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Apple Store Purchase</span>
+      <span class="debit">- $2,500</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto (BTC) Outgoing</span>
+      <span class="debit">- $40,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Purchase (Amazon)</span>
+      <span class="debit">- $500</span>
+    </div>
+  </div>
+
+  <div class="month-title">October</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Card Payment – Spotify</span>
+      <span class="debit">- $9.99</span>
+    </div>
+    <div class="transaction-item">
+      <span>Wire Transfer from Grand Atlantic Bank</span>
+      <span class="credit">+ $270,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Electricity Bill</span>
+      <span class="debit">- $150</span>
+    </div>
+    <div class="transaction-item">
+      <span>Bitcoin Received</span>
+      <span class="credit">+ $32,000</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2023 -->
+<div class="year-section">
+  <h2>2023</h2>
+
+  <div class="month-title">August</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Business Deal Deposit</span>
+      <span class="credit">+ $1,200,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Online Shopping – Gucci</span>
+      <span class="debit">- $4,600</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Submission (Walmart)</span>
+      <span class="credit">+ $300</span>
+    </div>
+    <div class="transaction-item">
+      <span>iTunes Card Sent</span>
+      <span class="debit">- $100</span>
+    </div>
+  </div>
+
+  <div class="month-title">March</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Crypto Sale (ETH)</span>
+      <span class="credit">+ $12,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>POS Transaction – Target</span>
+      <span class="debit">- $700</span>
+    </div>
+    <div class="transaction-item">
+      <span>Transfer from Zelle</span>
+      <span class="credit">+ $3,500</span>
+    </div>
+    <div class="transaction-item">
+      <span>Airtime Top-up</span>
+      <span class="debit">- $20</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2022 -->
+<div class="year-section">
+  <h2>2022</h2>
+
+  <div class="month-title">November</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Received via PayPal</span>
+      <span class="credit">+ $2,100</span>
+    </div>
+    <div class="transaction-item">
+      <span>Netflix Subscription</span>
+      <span class="debit">- $15.99</span>
+    </div>
+    <div class="transaction-item">
+      <span>Transfer to Business Partner</span>
+      <span class="debit">- $100,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Card Reversal</span>
+      <span class="credit">+ $80</span>
+    </div>
+  </div>
+
+  <div class="month-title">May</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Crypto Incoming (USDT)</span>
+      <span class="credit">+ $9,500</span>
+    </div>
+    <div class="transaction-item">
+      <span>Medical Bill Payment</span>
+      <span class="debit">- $1,200</span>
+    </div>
+    <div class="transaction-item">
+      <span>International Wire</span>
+      <span class="debit">- $45,000</span>
+    </div>
+  </div>
+</div>
+<!-- Year 2021 -->
+<div class="year-section">
+  <h2>2021</h2>
+
+  <div class="month-title">December</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Transfer from Ray Technologies Inc</span>
+      <span class="credit">+ $65,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Sent (BTC)</span>
+      <span class="debit">- $18,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Card Payment – Uber</span>
+      <span class="debit">- $40.50</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Credit (Steam)</span>
+      <span class="credit">+ $200</span>
+    </div>
+  </div>
+
+  <div class="month-title">September</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>POS – Apple Store</span>
+      <span class="debit">- $1,300</span>
+    </div>
+    <div class="transaction-item">
+      <span>Zelle Received from Alex</span>
+      <span class="credit">+ $500</span>
+    </div>
+    <div class="transaction-item">
+      <span>Airtime Purchase</span>
+      <span class="debit">- $25</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Purchase – iTunes</span>
+      <span class="debit">- $100</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2020 -->
+<div class="year-section">
+  <h2>2020</h2>
+
+  <div class="month-title">July</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Wire Transfer from Johnson Logistics</span>
+      <span class="credit">+ $150,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Bought – ETH</span>
+      <span class="debit">- $5,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Netflix Monthly Subscription</span>
+      <span class="debit">- $14.99</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Sale – Amazon</span>
+      <span class="credit">+ $300</span>
+    </div>
+  </div>
+
+  <div class="month-title">February</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Bank Transfer to Maria Gonzalez</span>
+      <span class="debit">- $7,200</span>
+    </div>
+    <div class="transaction-item">
+      <span>Incoming PayPal</span>
+      <span class="credit">+ $1,100</span>
+    </div>
+    <div class="transaction-item">
+      <span>Electricity Bill Payment</span>
+      <span class="debit">- $60</span>
+    </div>
+    <div class="transaction-item">
+      <span>Received Crypto (USDT)</span>
+      <span class="credit">+ $8,000</span>
+    </div>
+  </div>
+</div>
+
+    <!-- Year 2019 -->
+<div class="year-section">
+  <h2>2019</h2>
+
+  <div class="month-title">November</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Gift Card Redemption (eBay)</span>
+      <span class="credit">+ $150</span>
+    </div>
+    <div class="transaction-item">
+      <span>Transfer to Family Support</span>
+      <span class="debit">- $5,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Sent (ETH)</span>
+      <span class="debit">- $1,200</span>
+    </div>
+    <div class="transaction-item">
+      <span>POS Transaction – Walmart</span>
+      <span class="debit">- $300</span>
+    </div>
+  </div>
+
+  <div class="month-title">May</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Salary Credit – Freelance Contract</span>
+      <span class="credit">+ $12,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Electricity Bill</span>
+      <span class="debit">- $85</span>
+    </div>
+    <div class="transaction-item">
+      <span>iTunes Gift Card Sent</span>
+      <span class="debit">- $100</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Credit (Google Play)</span>
+      <span class="credit">+ $200</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2018 -->
+<div class="year-section">
+  <h2>2018</h2>
+
+  <div class="month-title">August</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Crypto Buy (BTC)</span>
+      <span class="debit">- $3,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Transfer from Client in UK</span>
+      <span class="credit">+ $22,500</span>
+    </div>
+    <div class="transaction-item">
+      <span>Card Payment – Airbnb</span>
+      <span class="debit">- $600</span>
+    </div>
+    <div class="transaction-item">
+      <span>POS – Best Buy</span>
+      <span class="debit">- $1,000</span>
+    </div>
+  </div>
+
+  <div class="month-title">March</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Gift Card Received – Steam</span>
+      <span class="credit">+ $250</span>
+    </div>
+    <div class="transaction-item">
+      <span>Medical Bill Payment</span>
+      <span class="debit">- $1,400</span>
+    </div>
+    <div class="transaction-item">
+      <span>Phone Top-Up</span>
+      <span class="debit">- $15</span>
+    </div>
+    <div class="transaction-item">
+      <span>Transfer from David</span>
+      <span class="credit">+ $500</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2017 -->
+<div class="year-section">
+  <h2>2017</h2>
+
+  <div class="month-title">December</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Wire Transfer – Company Dividend</span>
+      <span class="credit">+ $50,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Card Payment – Gas Station</span>
+      <span class="debit">- $60</span>
+    </div>
+    <div class="transaction-item">
+      <span>Bitcoin Purchase</span>
+      <span class="debit">- $8,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Trade (Target)</span>
+      <span class="credit">+ $100</span>
+    </div>
+  </div>
+
+  <div class="month-title">January</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>POS – IKEA</span>
+      <span class="debit">- $900</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Withdrawal</span>
+      <span class="debit">- $2,500</span>
+    </div>
+    <div class="transaction-item">
+      <span>Bank Transfer from Zainab</span>
+      <span class="credit">+ $300</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Submission (Google Play)</span>
+      <span class="credit">+ $150</span>
+    </div>
+  </div>
+</div>  
+<!-- Year 2016 -->
+<div class="year-section">
+  <h2>2016</h2>
+
+  <div class="month-title">October</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>International Wire Transfer – Royalty Payment</span>
+      <span class="credit">+ $75,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Transfer – BTC Out</span>
+      <span class="debit">- $10,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Used – Amazon</span>
+      <span class="debit">- $250</span>
+    </div>
+    <div class="transaction-item">
+      <span>Mobile Top-up</span>
+      <span class="debit">- $20</span>
+    </div>
+  </div>
+
+  <div class="month-title">April</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>POS – Macy's</span>
+      <span class="debit">- $480</span>
+    </div>
+    <div class="transaction-item">
+      <span>Payment Received – Property Rent</span>
+      <span class="credit">+ $2,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Electricity Bill Payment</span>
+      <span class="debit">- $95</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Credit – iTunes</span>
+      <span class="credit">+ $150</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2015 -->
+<div class="year-section">
+  <h2>2015</h2>
+
+  <div class="month-title">August</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Transfer to Business Partner</span>
+      <span class="debit">- $12,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Purchase – BTC</span>
+      <span class="debit">- $5,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Card Payment – Hotel Reservation</span>
+      <span class="debit">- $2,200</span>
+    </div>
+    <div class="transaction-item">
+      <span>Gift Card Redeemed – Steam</span>
+      <span class="credit">+ $300</span>
+    </div>
+  </div>
+
+  <div class="month-title">March</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Wire Transfer – Investor Funding</span>
+      <span class="credit">+ $95,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>POS – Samsung Store</span>
+      <span class="debit">- $1,800</span>
+    </div>
+    <div class="transaction-item">
+      <span>Water Bill Payment</span>
+      <span class="debit">- $40</span>
+    </div>
+    <div class="transaction-item">
+      <span>Bitcoin Received</span>
+      <span class="credit">+ $4,000</span>
+    </div>
+  </div>
+</div>
+
+<!-- Year 2014 -->
+<div class="year-section">
+  <h2>2014</h2>
+
+  <div class="month-title">December</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Gift Card Submission – Walmart</span>
+      <span class="credit">+ $100</span>
+    </div>
+    <div class="transaction-item">
+      <span>Online Shopping – eBay</span>
+      <span class="debit">- $360</span>
+    </div>
+    <div class="transaction-item">
+      <span>Crypto Sent – LTC</span>
+      <span class="debit">- $1,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Bank Transfer – Local Vendor</span>
+      <span class="debit">- $500</span>
+    </div>
+  </div>
+
+  <div class="month-title">June</div>
+  <div class="transaction-list">
+    <div class="transaction-item">
+      <span>Transfer from Anna Johnson</span>
+      <span class="credit">+ $250</span>
+    </div>
+    <div class="transaction-item">
+      <span>Card Payment – Netflix</span>
+      <span class="debit">- $9.99</span>
+    </div>
+    <div class="transaction-item">
+      <span>Bitcoin Buy</span>
+      <span class="debit">- $3,000</span>
+    </div>
+    <div class="transaction-item">
+      <span>Top-up: Mobile Internet</span>
+      <span class="debit">- $30</span>
+    </div>
+  </div>
+</div>
+ <!-- 💡 DUPLICATE THIS SECTION FOR MORE MONTHS -->
+      </div>
+
+      <div class="month-title">June</div>
+      <div class="transaction-list">
+        <div class="transaction-item">
+          <span>Gift Card Sale</span>
+          <span class="credit">+ $500</span>
+        </div>
+        <div class="transaction-item">
+          <span>Mobile Top-up</span>
+          <span class="debit">- $50</span>
+        </div>
+        <div class="transaction-item">
+          <span>Crypto Deposit</span>
+          <span class="credit">+ $7,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📄 STATEMENT OF ACCOUNT FORM -->
+    <div class="statement-form">
+      <h2>Request Statement of Account</h2>
+      <form>
+        <div class="form-group">
+          <label for="fromDate">From Date</label>
+          <input type="date" id="fromDate" required />
+        </div>
+        <div class="form-group">
+          <label for="toDate">To Date</label>
+          <input type="date" id="toDate" required />
+        </div>
+        <div class="form-group">
+          <label for="reason">Purpose of Request</label>
+          <input type="text" id="reason" placeholder="e.g. Visa application, audit, etc." required />
+        </div>
+        <div class="form-group">
+          <label for="format">Preferred Format</label>
+          <select id="format" required>
+            <option value="">Select format</option>
+            <option value="pdf">PDF</option>
+            <option value="excel">Excel</option>
+          </select>
+        </div>
+        <button type="submit">Generate Statement</button>
+      </form>
+    </div>
+
+    <a class="back-link" href="dashboard.html">← Back to Dashboard</a>
+  </div>
+
+</body>
+</html>

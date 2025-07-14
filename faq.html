@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQs - Vercell Bank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #3b82f6;
+    }
+
+    .faq-item {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 20px 15px;
+      display: none;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">💳 How do I open a bank account?</div>
+      <div class="faq-answer">You can open an account by registering online or visiting our nearest branch. Make sure to verify your identity for full access.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">🔐 How secure is Vercell Bank?</div>
+      <div class="faq-answer">We use industry-standard encryption and multi-factor authentication to keep your data and funds safe.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">⏱️ How long do wire transfers take?</div>
+      <div class="faq-answer">Wire transfers usually process within 1–2 business days, depending on the receiving bank and country.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">📱 Is there a mobile app available?</div>
+      <div class="faq-answer">Yes! Our app is available on both Android and iOS platforms. Download it from the respective app store.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">💰 What's the minimum balance to keep the account active?</div>
+      <div class="faq-answer">The minimum balance requirement is $10 to maintain account activity.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">🧾 Can I get a statement of account?</div>
+      <div class="faq-answer">Yes. You can request a statement from your dashboard or by visiting the Transactions page and selecting a date range.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">📩 How do I contact customer support?</div>
+      <div class="faq-answer">You can reach our support team via live chat, email at support@vercellbank.com, or phone at +1 800 555 1234.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">🧑‍💼 Can I open a business account?</div>
+      <div class="faq-answer">Yes. Business accounts require additional documentation and verification. You can start the process online or contact our support.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">🌍 Can I use my account abroad?</div>
+      <div class="faq-answer">Absolutely. You can access your Vercell Bank account from anywhere in the world. Use a secure VPN if needed.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">🎁 Do you support gift card deposits?</div>
+      <div class="faq-answer">Yes, we accept gift card verification under the Gift Card section. Email proof to vercellbank@gmail.com for confirmation.</div>
+    </div>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll(".faq-item");
+
+    items.forEach(item => {
+      item.querySelector(".faq-question").addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>

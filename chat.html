@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat - Vercell Bank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .chat-header {
+      background-color: #1e293b;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      color: #60a5fa;
+      font-weight: bold;
+    }
+    .chat-header span {
+      font-size: 0.9rem;
+      color: #22c55e;
+    }
+    .chat-box {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .message {
+      max-width: 70%;
+      padding: 12px 15px;
+      border-radius: 15px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .message.user {
+      background-color: #3b82f6;
+      align-self: flex-end;
+      color: white;
+    }
+    .message.agent {
+      background-color: #1e293b;
+      align-self: flex-start;
+      border: 1px solid #334155;
+    }
+    .chat-input {
+      display: flex;
+      padding: 15px 20px;
+      background-color: #1e293b;
+      border-top: 1px solid #334155;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-right: 10px;
+      font-size: 1rem;
+      background-color: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #334155;
+    }
+    .chat-input button {
+      padding: 12px 18px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-header">
+    💬 Chat with Martha <span>🟢 Online</span>
+  </div>
+
+  <div class="chat-box" id="chatBox">
+    <div class="message agent">
+      Hi there! I'm Martha from Vercell Bank. How can I help you today? 😊
+    </div>
+
+    <!-- ✅ Clue box -->
+    <div class="message agent" style="background-color:#334155;">
+      🔎 Try asking any of these:
+      <ul style="margin: 8px 0 0 18px; font-size: 0.9rem;">
+        <li>How to make a wire transfer?</li>
+        <li>Reset my password</li>
+        <li>Check Bitcoin price</li>
+        <li>Why is my account restricted?</li>
+        <li>What's the daily limit?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="messageInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById("chatBox");
+
+    const faqs = {
+      "wire transfer": "To make a wire transfer, go to the Transfer page and select 'Wire Transfer'.",
+      "minimum deposit": "The minimum deposit is $10.",
+      "reset password": "Use the 'Forgot Password' option on the login page.",
+      "transaction time": "Most transactions are completed within 1–2 business days.",
+      "account number": "Your account number is on your dashboard and bank documents.",
+      "forgot pin": "Use 'Forgot PIN' to reset securely via your registered email.",
+      "cancel transaction": "Transactions can only be cancelled if still pending.",
+      "mobile app": "Yes, the mobile app is available for Android and iOS.",
+      "contact support": "You can contact support via the Chat or Email options.",
+      "exchange rate": "Exchange rates update in the crypto rate section.",
+      "bitcoin": "Yes, Bitcoin transactions are supported under 'Bitcoin'.",
+      "verify identity": "Upload your ID under Settings > Identity Verification.",
+      "change phone": "Visit the Settings page to update your phone number.",
+      "fees": "Fees vary depending on transaction type, listed in Terms.",
+      "open account": "Select 'Open Account' from your dashboard to begin.",
+      "receive money": "Yes, just provide the correct routing and SWIFT code.",
+      "transfer limit": "The max daily limit is $50,000 without verification.",
+      "check balance": "Balance is displayed on your dashboard or account card.",
+      "declined": "Your transaction may have failed due to insufficient funds or verification issues.",
+      "secure": "Yes, our platform uses bank-grade encryption.",
+      "customer service": "You can call +1 800 555 1234 for direct assistance.",
+      "schedule transaction": "Scheduled transactions are supported under 'Advanced Options'.",
+      "bank statement": "Bank statements are available in the 'Transactions' section.",
+      "atm fee": "Yes, ATM fees apply depending on the network used.",
+      "wrong account": "Contact support immediately if this occurs.",
+      "activate card": "Log into your account and go to Card Settings > Activate.",
+      "joint account": "Yes, visit Settings > Account Type to request joint access.",
+      "alerts": "Go to Alerts in Settings to enable email or SMS alerts.",
+      "loan": "Loan requests are handled via the Loan section of your dashboard.",
+      "update info": "Use 'Edit Profile' under Settings to update your information.",
+      "limit": "Limit depends on your verification level, shown in Limits.",
+      "virtual card": "Yes, virtual cards are available under 'Cards'.",
+      "investment": "Yes, view the 'Invest' section for options.",
+      "btc secure": "Bitcoin service uses encrypted blockchain interaction for safety.",
+      "abroad": "Yes, log in via secure VPN if abroad.",
+      "giftcard proof": "Gift card proof can be uploaded in the Gift Card section.",
+      "last transaction": "View 'Recent Transactions' on the dashboard or use 'Track'.",
+      "delete account": "Please contact support for account deletion requests.",
+      "account restricted": "Restrictions occur if your KYC is incomplete or suspicious activity is detected.",
+      "overdraft": "Yes, overdraft protection is available under 'Accounts'.",
+      "usdt": "Yes, USDT and other stablecoins are supported.",
+      "btc price": "Check the Bitcoin page for current price.",
+      "crypto prices": "Use the full crypto table under Dashboard > Rates.",
+      "24/7": "Yes, our support is available 24/7 including holidays.",
+      "theme": "Theme change is available in Settings > Appearance.",
+      "statement email": "Yes, request statement delivery via Settings > Communication.",
+      "id": "Yes, government ID is required for account registration.",
+      "martha": "Martha is our lead support agent, online now to assist you.",
+      "manager": "Yes, ask Martha and she'll escalate if needed.",
+      "nft": "NFT support is being added soon. Stay tuned!"
+    };
+
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const msg = input.value.trim();
+      if (msg === "") return;
+
+      // Append user message
+      const userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.textContent = msg;
+      chatBox.appendChild(userMsg);
+      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Match against FAQ
+      const lowerMsg = msg.toLowerCase();
+      let replied = false;
+      for (let key in faqs) {
+        if (lowerMsg.includes(key)) {
+          const reply = document.createElement("div");
+          reply.className = "message agent";
+          reply.textContent = faqs[key];
+          chatBox.appendChild(reply);
+          replied = true;
+          break;
+        }
+      }
+
+      // Fallback
+      if (!replied) {
+        const reply = document.createElement("div");
+        reply.className = "message agent";
+        reply.textContent = "Thank you for your message. Martha will get back to you shortly.";
+        chatBox.appendChild(reply);
+      }
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bitcoin Transactions - Vercell Bank</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #1f2937;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      color: #f1f5f9;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #22d3ee;
+      color: #0f172a;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0ea5e9;
+      color: white;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      text-align: center;
+      color: #fbbf24;
+      margin-top: 15px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-link a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bitcoin Transaction</h1>
+
+    <form id="btcForm" onsubmit="handleBTC(event)">
+      <div class="form-group">
+        <label for="btcType">Select Transaction Type</label>
+        <select id="btcType" required>
+          <option value="">-- Select --</option>
+          <option value="buy">Buy Bitcoin</option>
+          <option value="send">Send Bitcoin</option>
+          <option value="receive">Receive Bitcoin</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="amountUSD">Amount (USD)</label>
+        <input type="number" id="amountUSD" placeholder="e.g. 1000" />
+      </div>
+
+      <div class="form-group">
+        <label for="amountBTC">Amount (BTC)</label>
+        <input type="text" id="amountBTC" placeholder="e.g. 0.035 BTC" />
+      </div>
+
+      <div class="form-group">
+        <label for="walletAddress">Wallet Address</label>
+        <input type="text" id="walletAddress" required />
+      </div>
+
+      <button type="submit">Proceed</button>
+    </form>
+
+    <p class="note">⚠️ Double-check wallet address before submitting. Transactions are irreversible.</p>
+
+    <div class="back-link">
+      <a href="dashboard.html">← Back to Dashboard</a>
+    </div>
+  </div>
+
+
+
+<div style="padding: 20px; background-color: #0f172a; color: #f1f5f9; border-radius: 12px;">
+  <h2 style="text-align:center; color:#60a5fa;">📊 Crypto Market Rates</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; max-height: 80vh; overflow-y: auto;">
+  
+  <!-- START of 50 Currencies -->
+  <!-- Preview: Top 5 Currencies -->
+    <div style="background:#1e293b; padding: 20px; border-radius: 10px;">
+      <h3 style="color:#facc15;">Bitcoin (BTC)</h3>
+      <p>Market Price: <strong>$120,844.34</strong></p>
+      <p>Buy from us: <span style="color:#22c55e;">$120,842.01</span></p>
+      <p>Sell to us: <span style="color:#ef4444;">$123,845.45</span></p>
+    </div>
+
+    <div style="background:#1e293b; padding: 20px; border-radius: 10px;">
+      <h3 style="color:#facc15;">Ethereum (ETH)</h3>
+      <p>Market Price: <strong>$34,167.75</strong></p>
+      <p>Buy from us: <span style="color:#22c55e;">$34,166.15</span></p>
+      <p>Sell to us: <span style="color:#ef4444;">$34,169.26</span></p>
+    </div>
+
+    <div style="background:#1e293b; padding: 20px; border-radius: 10px;">
+      <h3 style="color:#facc15;">Tether (USDT)</h3>
+      <p>Market Price: <strong>$13,246.49</strong></p>
+      <p>Buy from us: <span style="color:#22c55e;">$13,246.32</span></p>
+      <p>Sell to us: <span style="color:#ef4444;">$13,246.61</span></p>
+    </div>
+
+    <div style="background:#1e293b; padding: 20px; border-radius: 10px;">
+      <h3 style="color:#facc15;">BNB (BNB)</h3>
+      <p>Market Price: <strong>$52,388.50</strong></p>
+      <p>Buy from us: <span style="color:#22c55e;">$52,386.59</span></p>
+      <p>Sell to us: <span style="color:#ef4444;">$52,389.48</span></p>
+    </div>
+
+    <div style="background:#1e293b; padding: 20px; border-radius: 10px;">
+      <h3 style="color:#facc15;">Solana (SOL)</h3>
+      <p>Market Price: <strong>$23,416.71</strong></p>
+      <p>Buy from us: <span style="color:#22c55e;">$23,415.81</span></p>
+      <p>Sell to us: <span style="color:#ef4444;">$23,419.04</span></p>
+    </div>
+  <!-- END Preview -->
+
+  <!-- You will get full HTML for the remaining 45 currencies in next response due to size limit -->
+  </div>
+</div>
+
+  <script>
+    function handleBTC(e) {
+      e.preventDefault();
+      const type = document.getElementById("btcType").value;
+      const amount = document.getElementById("amountUSD").value || document.getElementById("amountBTC").value;
+      const wallet = document.getElementById("walletAddress").value;
+
+      if (!type || !wallet || !amount) {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+      alert(`${type.toUpperCase()} request of ${amount} submitted!\nYou’ll receive a confirmation shortly.`);
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>

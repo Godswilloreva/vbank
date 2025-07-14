@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vercell Bank - Register</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .register-container {
+      background-color: rgba(17, 24, 39, 0.9);
+      color: #f9fafb;
+      padding: 40px 30px;
+      border-radius: 18px;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      margin-top: 40px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .register-container h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #60a5fa;
+    }
+
+    .register-container p {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      color: #cbd5e1;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 5px;
+      color: #d1d5db;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background-color: #1f2937;
+      color: #f1f5f9;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .register-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      border: none;
+      color: #ffffff;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .register-btn:hover {
+      background-color: #2563eb;
+    }
+
+    .login-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .login-text a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .login-text a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .register-container {
+        margin: 20px;
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔁 Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="register-container">
+    <h1>Create Account</h1>
+    <p>Please enter your correct details. No correction after submission.</p>
+
+    <form id="registerForm">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="firstName" required />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="lastName" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" required />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" required />
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" required />
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select id="gender" required>
+          <option value="">Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nationality</label>
+        <input type="text" id="nationality" required />
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required />
+      </div>
+      <div class="form-group">
+        <label>Next of Kin - Name</label>
+        <input type="text" id="nextKinName" required />
+      </div>
+      <div class="form-group">
+        <label>Next of Kin - Other Name</label>
+        <input type="text" id="nextKinOtherName" required />
+      </div>
+      <div class="form-group">
+        <label>Next of Kin - Phone Number</label>
+        <input type="tel" id="nextKinPhone" required />
+      </div>
+      <button type="submit" class="register-btn">Register</button>
+    </form>
+
+    <div class="login-text">
+      Already have an account? <a href="index.html">Login</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters.');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+
+      alert('Registration successful. Redirecting to dashboard...');
+      window.location.href = "dashboard.html";
+    });
+  </script>
+
+</body>
+</html>

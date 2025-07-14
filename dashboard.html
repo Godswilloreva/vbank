@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vercell Bank - Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3a8a, #2a5298);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #0f172a;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+
+    .menu-toggle {
+      font-size: 1.8rem;
+      color: #f8fafc;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 240px;
+      height: 100%;
+      background-color: #111827;
+      padding: 2rem 1rem;
+      transition: left 0.3s ease;
+      z-index: 10;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 1.2rem 0;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .sidebar a:hover {
+      color: #3b82f6;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 5;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .main {
+      padding: 2rem 1.5rem;
+    }
+
+    .main h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background-color: #1e293b;
+      border-radius: 7px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+    }
+
+    .balance {
+      font-size: 2.5rem;
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .transaction-list .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #334155;
+    }
+
+    .transaction-list .item:last-child {
+      border-bottom: none;
+    }
+
+    .credit {
+      color: #22c55e;
+    }
+
+    .debit {
+      color: #ef4444;
+    }
+
+    @media (min-width: 768px) {
+      .main {
+        padding: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="dashboard.html">🏠 Dashboard</a><br>
+    <a href="transfer.html">💸 Transfer</a><br>
+    <a href="transaction.html">📜 Transactions</a><br>
+    <a href="settings.html">⚙️ Settings</a><br>
+     <a href="chat.html">🏦 chat with us</a><br>
+     <a href="faq.html">👬 FAQ</a><br>
+       <a href="withdrawa.html"> 💸 Withdraw</a><br>
+        <a href="deposit.html">🎯 Deposit</a><br>
+   <a href="help.html">🚉 Help Line</a><br>  <br><br><br><br><br><br><br><br><br><br>
+    <a href="index.html">🚪 Logout</a>
+  </div>
+
+
+
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Vercell Bank</div>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+  </header>
+
+ <!-- Main Content -->
+<div class="main">
+  <h1>Welcome back, Mr Nathaniel Miles Bennett  👋</h1>
+
+  <div class="card">
+    <h2>Account Balance</h2>
+    <div class="balance">$743,000.55</div>
+  </div>
+
+  <div class="card">
+    <h2>Recent Transactions</h2>
+    <div class="transaction-list">
+      <div class="item">
+        <span>Transfer from Oil Rig Monthly Wages LTD</span>
+        <span class="credit">+ $160,000</span>
+      </div>
+      <div class="item">
+        <span>Amazon Card Purchase Fee</span>
+        <span class="debit">- $500</span>
+      </div>
+<div class="item">
+        <span>Amazon Card Purchase Fess</span>
+        <span class="debit">- $340</span>
+      </div>
+
+      <div class="item">
+        <span>Salary Credit</span>
+        <span class="credit">+ $363,000</span>
+      </div>
+      <div class="item">
+        <span>ATM Withdrawal</span>
+        <span class="debit">- $10,000</span>
+      </div>
+      <div class="item">
+        <span>Mobile Top-up</span>
+        <span class="debit">- $500</span>
+      </div>
+      <div class="item">
+        <span>Transfer from Jane</span>
+        <span class="credit">+ $60,000</span>
+      </div>
+      <div class="item">
+        <span>Transfer from Insurance</span>
+        <span class="credit">+ $160,000</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- JS -->
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+
+
+
+<div style="
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+">
+  <a href="transfer.html" style="
+    background-color: #1e293b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    color: #f8fafc;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#3b82f6'" onmouseout="this.style.backgroundColor='#1e293b'">
+    💸 Transfer
+  </a>
+
+  <a href="giftcard.html" style="
+    background-color: #1e293b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    color: #f8fafc;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#3b82f6'" onmouseout="this.style.backgroundColor='#1e293b'">
+    🎁 Gift Card
+  </a>
+
+  <a href="bitcoin.html" style="
+    background-color: #1e293b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    color: #f8fafc;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#3b82f6'" onmouseout="this.style.backgroundColor='#1e293b'">
+    ₿ Bitcoin
+  </a>
+
+  <a href="airtime.html" style="
+    background-color: #1e293b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    color: #f8fafc;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#3b82f6'" onmouseout="this.style.backgroundColor='#1e293b'">
+    📱 Airtime
+  </a>
+</div>
+
+
+<br>
+<center> Buy Gift Cards</center>
+
+<div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.amazon.com/gift-cards" target="_blank" style="text-decoration: none; color: #60a5fa;">Amazon</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.itunes.com/gift-cards" target="_blank" style="text-decoration: none; color: #60a5fa;">iTunes</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://store.steampowered.com/digitalgiftcards/" target="_blank" style="text-decoration: none; color: #60a5fa;">Steam</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.walmart.com/cp/gift-cards/96894" target="_blank" style="text-decoration: none; color: #60a5fa;">Walmart</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://play.google.com/about/giftcards/" target="_blank" style="text-decoration: none; color: #60a5fa;">Google Play</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.target.com/c/gift-cards/-/N-5xsxu" target="_blank" style="text-decoration: none; color: #60a5fa;">Target</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.bestbuy.com/site/gift-cards" target="_blank" style="text-decoration: none; color: #60a5fa;">Best Buy</a>
+  </div>
+  <div style="display: inline-block; background-color: #1e293b; color: #f8fafc; padding: 20px; margin-right: 10px; border-radius: 12px; min-width: 150px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <a href="https://www.ebay.com/giftcards" target="_blank" style="text-decoration: none; color: #60a5fa;">eBay</a>
+  </div>
+</div>
+
+</body>
+</html>

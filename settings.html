@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - Vercell Bank</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #60a5fa;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      background-color: #1e293b;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+    }
+
+    .section h2 {
+      color: #facc15;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background-color: #1f2937;
+      color: #f1f5f9;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .logout {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .logout a {
+      color: #ef4444;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logout a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Account Settings</h1>
+
+    <!-- Personal Information -->
+    <div class="section">
+      <h2>Update Personal Information</h2>
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="e.g. Nathaniel Miles Bennett" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="example@email.com" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+1 555 000 1234" />
+      </div>
+      <button>Save Personal Info</button>
+    </div>
+
+    <!-- Password Update -->
+    <div class="section">
+      <h2>Change Password</h2>
+      <div class="form-group">
+        <label for="currentPass">Current Password</label>
+        <input type="password" id="currentPass" />
+      </div>
+      <div class="form-group">
+        <label for="newPass">New Password</label>
+        <input type="password" id="newPass" />
+      </div>
+      <div class="form-group">
+        <label for="confirmPass">Confirm New Password</label>
+        <input type="password" id="confirmPass" />
+      </div>
+      <button>Update Password</button>
+    </div>
+
+    <!-- Notifications -->
+    <div class="section">
+      <h2>Notification Preferences</h2>
+      <div class="form-group">
+        <label for="notif">Receive Email Alerts</label>
+        <select id="notif">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sms">Receive SMS Alerts</label>
+        <select id="sms">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <button>Update Preferences</button>
+    </div>
+
+    <!-- Security Questions -->
+    <div class="section">
+      <h2>Security Question</h2>
+      <div class="form-group">
+        <label for="question">Choose a Question</label>
+        <select id="question">
+          <option value="">Select</option>
+          <option value="pet">What is your first pet’s name?</option>
+          <option value="school">What school did you attend first?</option>
+          <option value="city">What is your birth city?</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="answer">Your Answer</label>
+        <input type="text" id="answer" />
+      </div>
+      <button>Set Security Question</button>
+    </div>
+
+    <!-- Theme Preference -->
+    <div class="section">
+      <h2>Display Mode</h2>
+      <div class="form-group">
+        <label for="theme">Choose Mode</label>
+        <select id="theme">
+          <option value="dark">Dark Mode</option>
+          <option value="light">Light Mode</option>
+        </select>
+      </div>
+      <button>Apply Theme</button>
+    </div>
+
+    <!-- Logout -->
+    <div class="logout">
+      <a href="login.html">🔒 Logout</a>
+    </div>
+  </div>
+
+</body>
+</html>
