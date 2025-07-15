@@ -137,17 +137,13 @@
   <div class="overlay"></div>
 
   <div class="login-container">
-    <h1>Vercell Bank</h1>
+    <h1>Ve green Bank</h1>
     <p>Next-generation banking for U.S. and U.K. users</p>
 
     <form id="loginForm">
       <div class="form-group">
         <label>Email Address</label>
         <input type="email" placeholder="you@example.com" required />
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" placeholder="••••••••" required />
       </div>
 
 <div class="form-group">
@@ -168,11 +164,22 @@
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+  document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const emailInput = document.querySelector('input[type="email"]').value.trim();
+    const passwordInput = document.querySelector('input[type="password"]').value;
+
+    const correctEmail = "nathanielmilesbennett4@gmail.com";
+    const correctPassword = "Nathanielmilesbennett";
+
+    if (emailInput === correctEmail && passwordInput === correctPassword) {
       window.location.href = "dashboard.html";
-    });
-  </script>
+    } else {
+      alert(" Incorrect email or password.\nAccess denied.");
+    }
+  });
+</script>
 
 </body>
 </html>

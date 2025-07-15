@@ -18,6 +18,27 @@
       margin: auto;
     }
 
+
+video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
     h1 {
       text-align: center;
       color: #60a5fa;
@@ -48,7 +69,7 @@
 
     input, select {
       width: 100%;
-      padding: 12px;
+      padding: 4px;
       border-radius: 10px;
       border: 1px solid #334155;
       background-color: #1f2937;
@@ -89,6 +110,15 @@
   </style>
 </head>
 <body>
+
+
+<!-- 🔁 Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="overlay"></div>
+
 
   <div class="container">
     <h1>Account Settings</h1>

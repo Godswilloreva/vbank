@@ -22,6 +22,26 @@
       position: relative;
     }
 
+      video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
@@ -130,10 +150,18 @@
       .main {
         padding: 3rem;
       }
-    }
+ }
   </style>
 </head>
 <body>
+
+<!-- ðŸ” Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="overlay"></div>
+
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
@@ -157,7 +185,7 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">Vercell Bank</div>
+    <div class="logo">Ve green Bank</div>
     <button class="menu-toggle" id="menuToggle">&#9776;</button>
   </header>
 
@@ -167,7 +195,7 @@
 
   <div class="card">
     <h2>Account Balance</h2>
-    <div class="balance">$743,000.55</div>
+    <div class="balance">$300,000.55</div>
   </div>
 
   <div class="card">
@@ -178,17 +206,17 @@
         <span class="credit">+ $160,000</span>
       </div>
       <div class="item">
-        <span>Amazon Card Purchase Fee</span>
+        <span>Amazon Card Purchase Fees</span>
         <span class="debit">- $500</span>
       </div>
 <div class="item">
-        <span>Amazon Card Purchase Fess</span>
+        <span>Amazon Card Purchase Fees</span>
         <span class="debit">- $340</span>
       </div>
 
       <div class="item">
         <span>Salary Credit</span>
-        <span class="credit">+ $363,000</span>
+        <span class="credit">+ $50,000</span>
       </div>
       <div class="item">
         <span>ATM Withdrawal</span>
@@ -204,7 +232,7 @@
       </div>
       <div class="item">
         <span>Transfer from Insurance</span>
-        <span class="credit">+ $160,000</span>
+        <span class="credit">+ $30,000</span>
       </div>
     </div>
   </div>

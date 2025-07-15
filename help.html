@@ -32,6 +32,28 @@
       margin-bottom: 25px;
     }
 
+
+video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+
     .section h3 {
       margin-bottom: 10px;
       color: #60a5fa;
@@ -86,6 +108,14 @@
   </style>
 </head>
 <body>
+
+
+<!-- ðŸ” Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="overlay"></div>
 
   <div class="container">
     <h2>💬 Help & Support</h2>
