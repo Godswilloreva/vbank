@@ -202,7 +202,8 @@
     <h5>₿ WALLET</h5>
     <h6>₿0.07765936</h6>
     <h2>Account Balance</h2>
-    <div class="balance">$450,000.57</div>
+    <div class="balance" id="balanceDisplay">$450,000.57</div>
+<p id="freezeNote" style="color: #facc15; font-size: 0.9rem; margin-top: 10px;"></p>
   </div>
 
 
@@ -373,5 +374,28 @@
   </div>
 </div>
 
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = parseFloat(urlParams.get('amount'));
+    const balanceEl = document.getElementById('balanceDisplay');
+    const noteEl = document.getElementById('freezeNote');
+
+    if (amount && !isNaN(amount)) {
+      let originalBalance = 450000.57;
+      let newBalance = originalBalance - amount;
+      if (newBalance < 0) newBalance = 0;
+
+      balanceEl.textContent = `$${newBalance.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`;
+
+      noteEl.textContent = "⚠️ Account has been frozen due to your location. Please contact ezee76047@gmail.com.com to unfreeze it.";
+    }
+  });
+</script>
 </body>
 </html>

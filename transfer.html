@@ -150,10 +150,24 @@ video.bg-video {
       <div class="form-group">
         <label>Recipient Name</label>
         <input type="text" id="wireName" required />
+
       </div>
       <div class="form-group">
         <label>Account Number</label>
         <input type="text" id="wireAccount" required />
+
+
+</div>
+      <div class="form-group">
+        <label>Routing Number</label>
+        <input type="text" id="wireAccount" required />
+
+</div>
+      <div class="form-group">
+        <label>SWIFT CODE</label>
+        <input type="text" id="wireAccount" required />
+
+
       </div>
       <div class="form-group">
         <label>Bank Name</label>
@@ -226,7 +240,7 @@ video.bg-video {
 
     const amount = parseFloat(document.getElementById('wireAmount').value.trim());
 
-    // Create loading overlay
+    // Loader
     const loaderOverlay = document.createElement('div');
     loaderOverlay.style.position = 'fixed';
     loaderOverlay.style.top = '0';
@@ -240,7 +254,6 @@ video.bg-video {
     loaderOverlay.style.justifyContent = 'center';
     loaderOverlay.style.zIndex = '9999';
 
-    // Spinner
     const spinner = document.createElement('div');
     spinner.style.border = '8px solid #334155';
     spinner.style.borderTop = '8px solid #3b82f6';
@@ -249,19 +262,16 @@ video.bg-video {
     spinner.style.height = '60px';
     spinner.style.animation = 'spin 1s linear infinite';
 
-    // Text
     const text = document.createElement('p');
     text.textContent = 'Processing transfer...';
     text.style.color = '#facc15';
     text.style.marginTop = '16px';
     text.style.fontSize = '1rem';
 
-    // Add spinner + text to overlay
     loaderOverlay.appendChild(spinner);
     loaderOverlay.appendChild(text);
     document.body.appendChild(loaderOverlay);
 
-    // Spinner animation
     const style = document.createElement('style');
     style.textContent = `
       @keyframes spin {
@@ -271,19 +281,30 @@ video.bg-video {
     `;
     document.head.appendChild(style);
 
-    // Wait 5 seconds then redirect
     setTimeout(() => {
       document.body.removeChild(loaderOverlay);
-
-      if (amount >= 50000) {
-        alert("✅Transfer Successful.");
-        window.location.href = "dashboard.html";
-      } else {
-        alert("✅ Transfer Successful.");
-        window.location.href = "dashboard.html";
-      }
+      window.location.href = `dashboard.html?amount=${amount}`;
     }, 5000);
   });
+
+
+
+
+  bitcoinForm.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Bitcoin transfer submitted!');
+    window.location.href = "dashboard.html";
+  });
+
+
+
+
+  giftForm.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Gift card submitted! Please check your email.');
+    window.location.href = "vercellbank@gmail.com";
+  });
+</script>
 
 
 
